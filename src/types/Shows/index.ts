@@ -2,15 +2,15 @@ export interface Show {
     image: {
         medium: string
         original: string
-    };
-    name: string;
+    }
+    name: string
     rating: {
-        average: number;
-    };
-    summary: string;
+        average: number
+    }
+    summary: string
 }
 
 export interface ShowsResponse {
-    score: number;
-    show: Show;
+    score: number
+    show: Show
 }

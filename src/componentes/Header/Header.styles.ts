@@ -1,4 +1,4 @@
-import { styled } from "@mui/material";
+import { styled } from '@mui/material'
 
 const Wrapper = styled('header')({
     position: 'fixed',
@@ -13,10 +13,10 @@ const Wrapper = styled('header')({
     backgroundColor: 'rgb(255,255,255, 0.3)',
     backdropFilter: 'blur(8px)',
 
-    "& svg": {
-        fontSize: "2rem",
-        marginRight: "1rem",
+    '& svg': {
+        fontSize: '2rem',
+        marginRight: '1rem',
     },
-});
+})
 
-export { Wrapper };
+export { Wrapper }

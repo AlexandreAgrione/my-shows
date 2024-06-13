@@ -1,18 +1,29 @@
-import { StarRounded } from "@mui/icons-material";
-import { Box, Card, CardActionArea, CardActions, CardContent, Typography } from "@mui/material";
-import { Cover, Description } from "./CardShow.styles";
-import { Show } from "@/types/Shows";
+import { StarRounded } from '@mui/icons-material'
+import {
+    Box,
+    Card,
+    CardActionArea,
+    CardActions,
+    CardContent,
+    Typography,
+} from '@mui/material'
+import { Cover, Description } from './CardShow.styles'
+import { Show } from '@/types/Shows'
 
-function CardShow(show: Show){
-    const { image, name, rating, summary } = show;
+function CardShow(show: Show) {
+    const { image, name, rating, summary } = show
 
     return (
         <Card elevation={5}>
             <CardActionArea>
-                <Cover component="img" image={image?.original}/>
+                <Cover component="img" image={image?.original} />
                 <CardContent>
                     <Box display="flex" flexDirection="column" gap={2}>
-                        <Typography fontSize="1.5rem" component="h3" fontWeight="bold">
+                        <Typography
+                            fontSize="1.5rem"
+                            component="h3"
+                            fontWeight="bold"
+                        >
                             {name}
                         </Typography>
                         <Box height="100px">
@@ -33,4 +44,4 @@ function CardShow(show: Show){
     )
 }
 
-export default CardShow;
+export default CardShow

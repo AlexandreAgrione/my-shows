@@ -1,33 +1,33 @@
-import { Button } from "@mui/material";
-import { SearchInput, SearchSection } from "./Search.styles";
-import { Search as SearchIcon, TvOutlined } from '@mui/icons-material';
-import { FormEvent } from "react";
+import { Button } from '@mui/material'
+import { SearchInput, SearchSection } from './Search.styles'
+import { Search as SearchIcon, TvOutlined } from '@mui/icons-material'
+import { FormEvent } from 'react'
 
 interface SearchProps {
-    setSearch: (search: string) => void;
+    setSearch: (search: string) => void
 }
 
-function Search({ setSearch }: SearchProps) {    
+function Search({ setSearch }: SearchProps) {
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+        event.preventDefault()
 
-        const formData = new FormData(event.currentTarget);
-        const search = formData.get('search') as string;
+        const formData = new FormData(event.currentTarget)
+        const search = formData.get('search') as string
 
-        setSearch(search);
-    };
+        setSearch(search)
+    }
 
     return (
         <form onSubmit={handleSubmit} style={{ width: '100%' }}>
             <SearchSection>
-                <SearchInput 
-                    name="search" 
-                    placeholder="Pesquise suas séries..." 
-                    fullWidth 
-                    startAdornment={<SearchIcon />} 
+                <SearchInput
+                    name="search"
+                    placeholder="Pesquise suas séries..."
+                    fullWidth
+                    startAdornment={<SearchIcon />}
                     autoComplete="off"
                 />
-                <Button type='submit' endIcon={<TvOutlined/>}>
+                <Button type="submit" endIcon={<TvOutlined />}>
                     Buscar
                 </Button>
             </SearchSection>
@@ -35,4 +35,4 @@ function Search({ setSearch }: SearchProps) {
     )
 }
 
-export default Search;
+export default Search

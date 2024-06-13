@@ -1,26 +1,26 @@
-import Header from "@/componentes/Header";
-import { Container } from "@mui/material";
-import { Wrapper } from "./Page.styles";
-import { ReactNode } from "react";
+import Header from '@/componentes/Header'
+import { Container } from '@mui/material'
+import { Wrapper } from './Page.styles'
+import { ReactNode } from 'react'
 
 interface PageProps {
-    children: ReactNode;
+    children: ReactNode
 }
 
 function Page({ children }: PageProps) {
     return (
         <Wrapper>
-            <Header/>
+            <Header />
 
-            <Container 
-                maxWidth="lg" 
+            <Container
+                maxWidth="lg"
                 sx={{
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'stretch',
                     justifyContent: 'space-around',
                     paddingTop: '80px',
-                    gap: '1rem'
+                    gap: '1rem',
                 }}
             >
                 {children}
@@ -29,4 +29,4 @@ function Page({ children }: PageProps) {
     )
 }
 
-export default Page;
+export default Page
