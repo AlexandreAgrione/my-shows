@@ -3,9 +3,9 @@ import "@fontsource/comfortaa/400.css";
 import "@fontsource/comfortaa/500.css";
 import "@fontsource/comfortaa/700.css";
 import { CssBaseline, ThemeProvider, Typography, createTheme } from "@mui/material";
-import Page from "@/componentes/Page/index";
-import Search from "@/componentes/Search";
-import Shows from "@/componentes/Shows";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "@/pages/Home";
 
 const theme = createTheme({
   typography: {
@@ -13,17 +13,29 @@ const theme = createTheme({
   },
 });
 
+const queryClient = new QueryClient();
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+]);
+
 function App() {
 
   return (
     <CssBaseline>
       <ThemeProvider theme={theme}>
-        <Typography>
-          <Page>
-            <Search />
-            <Shows />
-          </Page>
-        </Typography>
+        <QueryClientProvider client={queryClient}>
+          <Typography>
+            <RouterProvider router={router} />
+            {/* <Page>
+              <Search />
+              <Shows />
+            </Page> */}
+          </Typography> 
+        </QueryClientProvider>
       </ThemeProvider>
     </CssBaseline>
   )

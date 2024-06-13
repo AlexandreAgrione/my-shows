@@ -1,7 +1,16 @@
 import { Grid } from "@mui/material";
+import CardShow from "../CardShow";
+import { ShowsResponse } from "@/types/Shows";
+import SkeletonCard from "../SkeletonCard";
 
-function Shows(){
-    return(
+interface ShowsProps {
+    isLoading: boolean;
+    shows?: ShowsResponse[];
+}
+
+function Shows({ shows, isLoading }: ShowsProps){
+
+    return(        
         <section>
             <Grid
                 container
@@ -10,9 +19,21 @@ function Shows(){
                 alignItems='center'
                 justifyContent='center'
             >
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                    
-                </Grid>
+                {isLoading && (
+                    <>
+                    {[1, 2, 3, 4].map((item) => (
+                        <Grid item xs={12} sm={6} md={4} lg={3} key={item}>
+                            <SkeletonCard />
+                        </Grid>
+                    ))}
+                    </>
+                )}
+                {shows?.map((item, index) => (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                        <CardShow {...item.show}/>
+                    </Grid>
+                ))}
+                
             </Grid>
         </section>
     )
